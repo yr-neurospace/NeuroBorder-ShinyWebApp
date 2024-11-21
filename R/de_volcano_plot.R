@@ -115,7 +115,7 @@ de_volcano_plot_server <- function(id, session, extra_params) {
         raw_input_data <- reactive({
             req(input$input_data_file)
 
-            na.omit(vroom::vroom(input$input_data_file$datapath))
+            vroom::vroom(input$input_data_file$datapath)
         })
         input_anno_data <- reactive({
             req(input_data())
@@ -134,7 +134,6 @@ de_volcano_plot_server <- function(id, session, extra_params) {
                 vroom::vroom(input$input_anno_data_file$datapath) %>%
                     select(all_of(c(gene_id_column, diff_flag_column, logfc_column, padj_column))) %>%
                     set_colnames(c("gene_id", "diff_flag", "logFC", "padj")) %>%
-                    na.omit() %>%
                     mutate(diff_flag = factor(diff_flag, levels = diff_flag_levels)) %>%
                     distinct()
             } else {
@@ -224,7 +223,6 @@ de_volcano_plot_server <- function(id, session, extra_params) {
             raw_input_data() %>%
                 select(all_of(c(gene_id_column, diff_flag_column, logfc_column, padj_column))) %>%
                 set_colnames(c("gene_id", "diff_flag", "logFC", "padj")) %>%
-                na.omit() %>%
                 mutate(diff_flag = factor(diff_flag, levels = diff_flag_levels)) %>%
                 distinct()
         })
