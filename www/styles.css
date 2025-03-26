@@ -1,0 +1,37 @@
+.btn-download {
+    display: inline-block;
+    padding: 10px 10px;
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-download::before {
+    content: '⬇️';
+    margin-right: 8px;
+    font-size: 24px;
+    vertical-align: middle;
+}
+
+.btn-download:hover,
+.btn-download:focus {
+    background-color: #31b0d5;
+    border-color: #269abc;
+    text-decoration: none;
+}
